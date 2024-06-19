@@ -1,0 +1,44 @@
+package com.koreait.app;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+//@WebServlet 어노테이션은 우리가 지정한 path(경로)로 요청이 들어왔을때
+//이 서블릿이 실행되도록 설정해준다.
+@WebServlet("/test")
+public class TestServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+  
+    public TestServlet() {
+        super();
+    }
+    // 이 서블릿 클래스와 연결된 경로로 요청이 들어왔을 때
+//     요청 방식이 get|post 둘중 하나가 들어오게 된다.
+//    get방식으로 요청이 들어오면 doGet() 메서드가 실행 된다
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//		doget 메서드의 파라미터를 확인해보면 request(요청), response(응답)이 선언되어 있다.
+//		자바에서는 요청과 응답을 객체로 다루며, 사용자가 보낸 요청에서 필요한 정보를 꺼낼때 request 객체에서 꺼낼 수 있다.
+//		사용자(client)에게 우리가 보내주고 싶은 데이턱 있다면 response 객체를 통해 보재줄 수 있다.
+		
+		
+		System.out.println("do get");
+		response.setContentType("text/plain;charset=utf-8");
+//		response.getWriter().append("Served at: ").append(request.getContextPath());
+			PrintWriter out = response.getWriter();
+			out.append("hellow");
+			out.append("안뇽");
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+		
+	}
+
+}

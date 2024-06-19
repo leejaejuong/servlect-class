@@ -1,0 +1,21 @@
+package com.koreait.app;
+
+import java.io.IOException;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+@WebServlet("/result")
+public class ReultServlet extends HttpServlet{
+
+protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	System.out.println("GET /day01/result");
+}
+@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		System.out.println("POST /day01/result");
+	}
+}
